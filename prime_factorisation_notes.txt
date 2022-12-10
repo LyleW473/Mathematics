@@ -1,0 +1,42 @@
+number = 60
+
+prime_number = 2
+
+while 2 ** 2 <=  60:
+	
+	
+	if 60 MOD 2 == 0:
+		
+		factors.append(2)
+
+		number = 60 divided by 2 = 30
+
+
+while 2 ** 2 <= 30:
+
+	if 30 MOD 2 == 0:
+		factors.append(2)
+		number = 30 divided by 2 = 15
+
+
+
+while 2 ** 2 <= 15:
+	if 15 MOD 2 == 0:
+		NOT
+	else:
+		prime_number = 3
+
+
+while 3 ** 2 <= 15:
+	if 15 MOD 3 == 0:
+		factors.append(3)
+		number = 15 divided by 3 = 5
+	
+
+while 3 ** 2 <= 5:
+	NOT
+
+factors.append(5)
+
+factors = [2, 2, 3, 5]
+
