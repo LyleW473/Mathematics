@@ -3,7 +3,7 @@ https://www.geeksforgeeks.org/johnson-trotter-algorithm/
 """
 
 def johnson_and_trotter(lower_bound = 1, upper_bound = 4): # Default sequence is [1, 2, 3, 4]
-    
+
     permutations_list = []
     # The sublists in the digits list represent: Number, Direction its facing, mobile or not
     digits = [ [i, "left", False] for i in range(lower_bound, upper_bound + 1)]
@@ -34,6 +34,7 @@ def johnson_and_trotter(lower_bound = 1, upper_bound = 4): # Default sequence is
                 
                 # If the directed integer is facing left
                 if digits[i][1] == "left":
+                    
                     # If the integer is greater than the integer that it is pointing to
                     if digits[i][0] > digits[i - 1][0]:
                         # Set the integer as mobile
@@ -41,6 +42,7 @@ def johnson_and_trotter(lower_bound = 1, upper_bound = 4): # Default sequence is
 
                 # If the directed integer is facing right
                 elif digits[i][1] == "right":
+
                     # If the integer is greater than the integer that it is pointing to
                     if digits[i][0] > digits[i + 1][0]:
                         # Set the integer as mobile
@@ -60,6 +62,7 @@ def johnson_and_trotter(lower_bound = 1, upper_bound = 4): # Default sequence is
         # Find the largest mobile
         largest_mobile = -1
         for i in range(0, len(digits)):
+            
             # If the number is mobile, and greater than the largest mobile we have found so far
             if (digits[i][0] > largest_mobile) and digits[i][2] == True :
                 # Set the largest mobile as this digit
@@ -83,30 +86,28 @@ def johnson_and_trotter(lower_bound = 1, upper_bound = 4): # Default sequence is
                 
         # If it is pointing right
         elif digits[i][1] == "right":
+
             # If the integer is greater than the item it is pointing to
             if digits[i][0] > digits[i + 1][0]:
                 # Swap the elements
                 digits[i], digits[i + 1] = digits[i + 1], digits[i]
     
-
-        # Check if there are any values greater than the mobile integer value
+        # Create a string to hold the permutation
+        permutation = ""
+        # Iterate through the digits list
         for j in range(0, len(digits)):
+            # Add the digit to the string
+            permutation += str(digits[j][0])
+
+            # Check if there are any values greater than the mobile integer value
             if digits[j][0] > largest_mobile:
+
                 # Switch the directions based on where it was looking
-                
                 if digits[j][1] == "left":
                     digits[j][1] = "right"
 
                 elif digits[j][1] == "right":
                     digits[j][1] = "left"
-
-
-        # Create a string to hold the permutation
-        permutation = ""
-        # Iterate through the digits list to find the permutation
-        for i in range(0, len(digits)):
-            # Add it to the string
-            permutation += str(digits[i][0])
 
         # Add the permutation to the permutations list
         permutations_list.append(str(permutation))
